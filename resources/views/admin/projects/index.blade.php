@@ -26,14 +26,14 @@
                        <td>{!! $project->type->getBadge() !!}</td>
                        <td>{{ $project->slug }}</td>
                        <td>{{ $project->redDescription(50) }}</td>
-                       <th>
+                       <td>
                        <a href="{{ route("admin.projects.show", $project) }}" class="btn btn-info my-3"><i class="fa-solid fa-book"></i></a>
 
                        <a href="{{ route("admin.projects.edit", $project) }}" class="btn btn-warning my-3"><i class="fa-solid fa-pen-to-square"></i></a>
 
                        <button data-bs-target="#delete-project-{{ $project->id }}-modal"  class="btn btn-danger my-3" type="button" class="btn btn-primary" data-bs-toggle="modal"><i class="fa-solid fa-xmark"></i></button>
 
-                       </th>
+                       </td>
                    </tr>
                 @empty
                    <tr>

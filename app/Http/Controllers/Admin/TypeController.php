@@ -11,28 +11,26 @@ class TypeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $types = Type::orderBy("id", "DESC")->paginate(20);
+        return view("admin.types.index", compact("types"));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -43,7 +41,6 @@ class TypeController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Type  $type
-     * @return \Illuminate\Http\Response
      */
     public function show(Type $type)
     {
@@ -54,7 +51,6 @@ class TypeController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Type  $type
-     * @return \Illuminate\Http\Response
      */
     public function edit(Type $type)
     {
@@ -66,7 +62,6 @@ class TypeController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Type  $type
-     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Type $type)
     {
@@ -77,7 +72,6 @@ class TypeController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Type  $type
-     * @return \Illuminate\Http\Response
      */
     public function destroy(Type $type)
     {
