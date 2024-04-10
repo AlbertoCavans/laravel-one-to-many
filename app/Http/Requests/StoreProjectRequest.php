@@ -25,7 +25,8 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             "name_project" => "required|string|max:200",
-            "description" => "required|string"           
+            "description" => "required|string",
+            "type_id" => "required|exists:types,id",
         ];
     }
 
@@ -42,6 +43,8 @@ class StoreProjectRequest extends FormRequest
             "name_project.max" => "Il nome del progetto è non può superare i 200 caratteri",
             "description.required" => "La descrizione del progetto non può essere vuota",
             "description.string" => "La descrizione del progetto dev'essere un testo",
+            "type_id.required" => "Bisogna scegliere una delle opzioni della select-type",
+            "type_id.exists" => "Bisogna scegliere un'opzione esistente",
         ];
     }
 }

@@ -26,11 +26,26 @@
         @endif
         @csrf
         
-        <div class="col-12">
+        <div class="col-6">
             <label for="name_project" class="form-label">Name of the project</label>
             <input type="text" @class([ 'form-control', 'is-invalid' => $errors->has('name_project') ]) id="name_project" name="name_project"
             value="{{ old("name_project", $project["name_project"]) }}">
             @error("name_project")
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+
+
+        <div class="col-6">
+            <label for="type_id" class="form-label">Type of project</label>
+            <select name="type_id" id="type_id" @class([ 'form-select', 'is-invalid' => $errors->has('type_id') ])>
+            <option value="" class="d-none">Select a type</option>
+            @foreach($types as $type)
+
+            <option {{ $type->id == old('type_id', $project->type_id) ? 'selected' : '' }} value="{{ $type->id }}">{{ $type->label }}</option>
+            @endforeach
+            </select>
+            @error("type_id")
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
