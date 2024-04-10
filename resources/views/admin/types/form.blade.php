@@ -28,12 +28,12 @@
 
         <div class="col-1">
             <label for="color">Color</label>
-            <input type="color" class="form-control" id="color" name="color">
+            <input type="color" class="form-control" id="color" name="color"  value="{{ old("color", $type["color"]) }}">
         </div>
 
         <div class="col-11">
             <label for="label">Label</label>
-            <input type="text" class="form-control" id="label" name="label">
+            <input type="text" class="form-control" id="label" name="label"  value="{{ old("label", $type["label"]) }}">
         </div>
         
 

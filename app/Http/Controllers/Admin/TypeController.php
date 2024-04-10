@@ -51,7 +51,9 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+        $projects_by_type = $type->projects()->paginate(10);
+        return view("admin.types.show", compact("type", "projects_by_type"));
+
     }
 
     /**
@@ -61,7 +63,8 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view("admin.types.form", compact("type"));
+
     }
 
     /**
@@ -72,7 +75,10 @@ class TypeController extends Controller
      */
     public function update(Request $request, Type $type)
     {
-        //
+        $data = $request->all();
+
+        $type->update($data);
+        return redirect()->route("admin.types.show", $type);
     }
 
     /**
@@ -82,6 +88,10 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        foreach($type->projects as $project) {
+            $project->delete();
+        }
+        $type->delete();
+        return redirect()->back();
     }
 }

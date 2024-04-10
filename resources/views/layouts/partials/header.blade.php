@@ -26,6 +26,10 @@
             <li class="nav-item">
                   <a class="nav-link" href="{{ route('admin.projects.index') }}">Projects List</a>
             </li>
+            <li class="nav-item">
+            <a href="{{ route("admin.types.index") }}" class="nav-link">Types of Projects List</a>
+
+            </li>
 
             <li class="nav-item dropdown">
               <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
