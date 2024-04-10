@@ -17,6 +17,7 @@
                 </div>
                 <div class="card-body">
                   <h6 class="slug-title">Slug title: <i>{{ $project["slug"] }}</i></h6>
+                  <p class="card-text my-3"><strong>Type project:</strong> {!! $project->type->getBadge() !!}</p>
                   <p class="card-text my-3"><strong>Description:</strong> {{ $project["description"] }}</p>
                   <a href="{{ route("admin.projects.edit", $project) }}" class="btn btn-primary">Update Project</a>
                 </div>   

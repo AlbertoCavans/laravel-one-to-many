@@ -23,7 +23,7 @@
                 @forelse($projects as $project)
                    <tr>
                        <td>{{ $project->name_project }}</td>
-                       <td>{{ $project->type->label }}</td>
+                       <td>{!! $project->type->getBadge() !!}</td>
                        <td>{{ $project->slug }}</td>
                        <td>{{ $project->redDescription(50) }}</td>
                        <th>
